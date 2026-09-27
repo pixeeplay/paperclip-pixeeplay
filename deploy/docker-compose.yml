@@ -54,6 +54,8 @@ services:
       - COOLIFY_API_TOKEN=${COOLIFY_API_TOKEN:-}
       - COOLIFY_SERVER_UUID=${COOLIFY_SERVER_UUID:-}
       - COOLIFY_PROJECT_UUID=${COOLIFY_PROJECT_UUID:-}
+      # --- CRM Attio (workspace pixee-play) pour le Directeur de studio et la communication ---
+      - ATTIO_API_KEY=${ATTIO_API_KEY:-}
       - GIT_AUTHOR_NAME=${GIT_AUTHOR_NAME:-Pixeeplay Agents}
       - GIT_AUTHOR_EMAIL=${GIT_AUTHOR_EMAIL:-agents@pixeeplay.com}
       - GIT_COMMITTER_NAME=${GIT_AUTHOR_NAME:-Pixeeplay Agents}

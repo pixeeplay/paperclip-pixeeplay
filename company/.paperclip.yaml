@@ -36,6 +36,9 @@ agents:
         GH_TOKEN:
           kind: secret
           requirement: optional
+        ATTIO_API_KEY:
+          kind: secret
+          requirement: optional
 
   cpo:
     role: product-manager
@@ -150,6 +153,9 @@ agents:
           kind: secret
           requirement: optional
         GH_TOKEN:
+          kind: secret
+          requirement: optional
+        ATTIO_API_KEY:
           kind: secret
           requirement: optional
 
