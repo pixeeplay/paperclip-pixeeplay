@@ -19,6 +19,9 @@ COOLIFY_URL="${COOLIFY_URL:-http://51.75.31.123:8000}"
 PUBLIC_URL="${PAPERCLIP_PUBLIC_URL:-https://paperclip.pixeeplay.com}"
 TOKEN_API="${COOLIFY_API_TOKEN:-}"
 
+if [[ -z "$TOKEN_API" && -f "$HOME/.config/pixeeplay/coolify_token" ]]; then
+  TOKEN_API=$(tr -d '[:space:]' < "$HOME/.config/pixeeplay/coolify_token")
+fi
 if [[ -z "$TOKEN_API" ]]; then
   SKILL="$HOME/.claude/skills/pixeeplay-deploy/SKILL.md"
   if [[ -f "$SKILL" ]]; then
