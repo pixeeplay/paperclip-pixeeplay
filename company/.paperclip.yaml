@@ -95,7 +95,7 @@ agents:
           requirement: optional
         GH_TOKEN:
           kind: secret
-          requirement: required
+          requirement: optional
 
   directeur-artistique:
     role: designer
@@ -179,7 +179,7 @@ agents:
           requirement: optional
         GH_TOKEN:
           kind: secret
-          requirement: required
+          requirement: optional
 
   lead-apple:
     role: engineer
@@ -207,7 +207,7 @@ agents:
           requirement: optional
         GH_TOKEN:
           kind: secret
-          requirement: required
+          requirement: optional
 
   lead-android:
     role: engineer
@@ -235,7 +235,7 @@ agents:
           requirement: optional
         GH_TOKEN:
           kind: secret
-          requirement: required
+          requirement: optional
 
   devops-release:
     role: engineer
@@ -263,14 +263,14 @@ agents:
           requirement: optional
         GH_TOKEN:
           kind: secret
-          requirement: required
+          requirement: optional
         COOLIFY_URL:
           kind: plain
-          requirement: required
+          requirement: optional
           default: "http://51.75.31.123:8000"
         COOLIFY_API_TOKEN:
           kind: secret
-          requirement: required
+          requirement: optional
         COOLIFY_SERVER_UUID:
           kind: plain
           requirement: optional
