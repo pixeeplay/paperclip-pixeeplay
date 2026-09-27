@@ -1,0 +1,328 @@
+# Extension Paperclip — fidélité runtime du package (adapters, heartbeats, budgets, routines).
+# Le package markdown reste lisible sans ce fichier ; Paperclip l'applique à l'import.
+# Les heartbeats sont importés désactivés par sécurité : activer le CEO en premier.
+schema: paperclip/v1
+
+agents:
+  ceo:
+    role: ceo
+    icon: briefcase
+    adapter:
+      type: claude_local
+      config:
+        model: claude-opus-5-5
+        effort: high
+        maxTurnsPerRun: 80
+    runtime:
+      heartbeat:
+        intervalSec: 3600
+        cooldownSec: 60
+        wakeOnAssignment: true
+        wakeOnDemand: true
+        wakeOnAutomation: true
+        maxConcurrentRuns: 1
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    budgetMonthlyCents: 15000
+    inputs:
+      env:
+        CLAUDE_CODE_OAUTH_TOKEN:
+          kind: secret
+          requirement: optional
+        ANTHROPIC_API_KEY:
+          kind: secret
+          requirement: optional
+        GH_TOKEN:
+          kind: secret
+          requirement: optional
+
+  cpo:
+    role: product-manager
+    icon: clipboard-list
+    adapter:
+      type: claude_local
+      config:
+        model: claude-opus-5-5
+        effort: high
+        maxTurnsPerRun: 60
+    runtime:
+      heartbeat:
+        intervalSec: 7200
+        cooldownSec: 60
+        wakeOnAssignment: true
+        wakeOnDemand: true
+        wakeOnAutomation: true
+        maxConcurrentRuns: 1
+    permissions:
+      canCreateAgents: false
+      canCreateSkills: true
+    budgetMonthlyCents: 12000
+    inputs:
+      env:
+        CLAUDE_CODE_OAUTH_TOKEN:
+          kind: secret
+          requirement: optional
+        GH_TOKEN:
+          kind: secret
+          requirement: optional
+
+  cto:
+    role: engineering-manager
+    icon: git-branch
+    adapter:
+      type: claude_local
+      config:
+        model: claude-opus-5-5
+        effort: high
+        maxTurnsPerRun: 80
+    runtime:
+      heartbeat:
+        intervalSec: 3600
+        cooldownSec: 60
+        wakeOnAssignment: true
+        wakeOnDemand: true
+        wakeOnAutomation: true
+        maxConcurrentRuns: 2
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    budgetMonthlyCents: 15000
+    inputs:
+      env:
+        CLAUDE_CODE_OAUTH_TOKEN:
+          kind: secret
+          requirement: optional
+        GH_TOKEN:
+          kind: secret
+          requirement: required
+
+  directeur-artistique:
+    role: designer
+    icon: palette
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-5
+        effort: medium
+        maxTurnsPerRun: 60
+    runtime:
+      heartbeat:
+        intervalSec: 0
+        wakeOnAssignment: true
+        wakeOnDemand: true
+        wakeOnAutomation: true
+        maxConcurrentRuns: 1
+    permissions:
+      canCreateAgents: false
+    budgetMonthlyCents: 6000
+    inputs:
+      env:
+        CLAUDE_CODE_OAUTH_TOKEN:
+          kind: secret
+          requirement: optional
+        GH_TOKEN:
+          kind: secret
+          requirement: optional
+
+  responsable-communication:
+    role: content-strategist
+    icon: megaphone
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-5
+        effort: medium
+        maxTurnsPerRun: 60
+    runtime:
+      heartbeat:
+        intervalSec: 0
+        wakeOnAssignment: true
+        wakeOnDemand: true
+        wakeOnAutomation: true
+        maxConcurrentRuns: 1
+    permissions:
+      canCreateAgents: false
+    budgetMonthlyCents: 6000
+    inputs:
+      env:
+        CLAUDE_CODE_OAUTH_TOKEN:
+          kind: secret
+          requirement: optional
+        GH_TOKEN:
+          kind: secret
+          requirement: optional
+
+  lead-web:
+    role: engineer
+    icon: globe
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-5
+        effort: medium
+        maxTurnsPerRun: 120
+    runtime:
+      heartbeat:
+        intervalSec: 0
+        wakeOnAssignment: true
+        wakeOnDemand: true
+        wakeOnAutomation: true
+        maxConcurrentRuns: 2
+    permissions:
+      canCreateAgents: false
+    budgetMonthlyCents: 20000
+    inputs:
+      env:
+        CLAUDE_CODE_OAUTH_TOKEN:
+          kind: secret
+          requirement: optional
+        GH_TOKEN:
+          kind: secret
+          requirement: required
+
+  lead-apple:
+    role: engineer
+    icon: smartphone
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-5
+        effort: medium
+        maxTurnsPerRun: 120
+    runtime:
+      heartbeat:
+        intervalSec: 0
+        wakeOnAssignment: true
+        wakeOnDemand: true
+        wakeOnAutomation: true
+        maxConcurrentRuns: 1
+    permissions:
+      canCreateAgents: false
+    budgetMonthlyCents: 15000
+    inputs:
+      env:
+        CLAUDE_CODE_OAUTH_TOKEN:
+          kind: secret
+          requirement: optional
+        GH_TOKEN:
+          kind: secret
+          requirement: required
+
+  lead-android:
+    role: engineer
+    icon: tablet
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-5
+        effort: medium
+        maxTurnsPerRun: 120
+    runtime:
+      heartbeat:
+        intervalSec: 0
+        wakeOnAssignment: true
+        wakeOnDemand: true
+        wakeOnAutomation: true
+        maxConcurrentRuns: 1
+    permissions:
+      canCreateAgents: false
+    budgetMonthlyCents: 15000
+    inputs:
+      env:
+        CLAUDE_CODE_OAUTH_TOKEN:
+          kind: secret
+          requirement: optional
+        GH_TOKEN:
+          kind: secret
+          requirement: required
+
+  devops-release:
+    role: engineer
+    icon: server
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-5
+        effort: medium
+        maxTurnsPerRun: 80
+    runtime:
+      heartbeat:
+        intervalSec: 0
+        wakeOnAssignment: true
+        wakeOnDemand: true
+        wakeOnAutomation: true
+        maxConcurrentRuns: 1
+    permissions:
+      canCreateAgents: false
+    budgetMonthlyCents: 8000
+    inputs:
+      env:
+        CLAUDE_CODE_OAUTH_TOKEN:
+          kind: secret
+          requirement: optional
+        GH_TOKEN:
+          kind: secret
+          requirement: required
+        COOLIFY_URL:
+          kind: plain
+          requirement: required
+          default: "http://51.75.31.123:8000"
+        COOLIFY_API_TOKEN:
+          kind: secret
+          requirement: required
+        COOLIFY_SERVER_UUID:
+          kind: plain
+          requirement: optional
+        COOLIFY_PROJECT_UUID:
+          kind: plain
+          requirement: optional
+        COOLIFY_ENV_NAME:
+          kind: plain
+          requirement: optional
+          default: production
+
+  qa:
+    role: qa
+    icon: check-circle
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-5
+        effort: medium
+        maxTurnsPerRun: 80
+    runtime:
+      heartbeat:
+        intervalSec: 0
+        wakeOnAssignment: true
+        wakeOnDemand: true
+        wakeOnAutomation: true
+        maxConcurrentRuns: 1
+    permissions:
+      canCreateAgents: false
+    budgetMonthlyCents: 8000
+    inputs:
+      env:
+        CLAUDE_CODE_OAUTH_TOKEN:
+          kind: secret
+          requirement: optional
+        GH_TOKEN:
+          kind: secret
+          requirement: optional
+
+routines:
+  revue-portefeuille-hebdo:
+    triggers:
+      - kind: schedule
+        cronExpression: "0 9 * * 1"
+        timezone: Europe/Paris
+  rapport-clients-vendredi:
+    triggers:
+      - kind: schedule
+        cronExpression: "0 17 * * 5"
+        timezone: Europe/Paris
+  veille-securite-dependances:
+    triggers:
+      - kind: schedule
+        cronExpression: "30 7 * * 3"
+        timezone: Europe/Paris
