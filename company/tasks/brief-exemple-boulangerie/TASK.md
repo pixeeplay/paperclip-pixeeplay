@@ -1,6 +1,5 @@
 ---
-name: >-
-  Brief : Maison Dupain — boulangerie-pâtisserie (exemple)
+name: Brief — Maison Dupain, boulangerie-pâtisserie (exemple)
 slug: brief-exemple-boulangerie
 assignee: ceo
 project: onboarding-client
