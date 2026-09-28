@@ -56,6 +56,11 @@ services:
       - COOLIFY_PROJECT_UUID=${COOLIFY_PROJECT_UUID:-}
       # --- CRM Attio (workspace pixee-play) pour le Directeur de studio et la communication ---
       - ATTIO_API_KEY=${ATTIO_API_KEY:-}
+      # --- Pixeeplay Co. (agents Buzz) : Courrier, Essaim, Hermès — Télégramme ---
+      - RESEND_API_KEY=${RESEND_API_KEY:-}
+      - ZERNIO_API_KEY=${ZERNIO_API_KEY:-}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:-}
+      - TELEGRAM_ALLOWED_USER_IDS=${TELEGRAM_ALLOWED_USER_IDS:-}
       - GIT_AUTHOR_NAME=${GIT_AUTHOR_NAME:-Pixeeplay Agents}
       - GIT_AUTHOR_EMAIL=${GIT_AUTHOR_EMAIL:-agents@pixeeplay.com}
       - GIT_COMMITTER_NAME=${GIT_AUTHOR_NAME:-Pixeeplay Agents}
