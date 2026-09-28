@@ -332,3 +332,8 @@ routines:
       - kind: schedule
         cronExpression: "30 7 * * 3"
         timezone: Europe/Paris
+  veille-visios-attio:
+    triggers:
+      - kind: schedule
+        cronExpression: "15 8-20/3 * * 1-6"
+        timezone: Europe/Paris

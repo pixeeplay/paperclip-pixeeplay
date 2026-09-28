@@ -25,6 +25,7 @@ requirements:
     - GH_TOKEN
     - COOLIFY_API_TOKEN
     - COOLIFY_URL
+    - ATTIO_API_KEY
 ---
 
 # Pixeeplay Studio
