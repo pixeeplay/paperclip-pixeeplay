@@ -31,16 +31,15 @@ GET /v2/meetings/{meeting_id}/call_recordings/{id}/transcript?limit=500[&cursor=
 ```
 La transcription est une liste de **mots** (`speech`, `start_time`, `end_time`, `speaker.name`), paginée par `pagination.next_cursor`. Reconstituer les tours de parole : mots contigus du même orateur, séparés de moins de 2 s, préfixés `[mm:ss] Orateur :`. Lire l'intégralité avant d'écrire.
 
-## 3. Écrire le brief (modèle des briefs existants)
+## 3. Écrire le brief
 Sections : Client (société, site, interlocuteurs externes nom + e-mail, contexte de la prise de contact) · Existant (outils cités, problèmes concrets avec leurs mots) · Objectif en une phrase · Parcours critiques · Ce que le client attend maintenant (**engagements pris oralement par Pixeeplay** : e-mail promis, questions, délai de relance, démo, accès demandés) · Ton et contraintes (vouvoiement si le client vouvoie ; rien n'est envoyé sans validation du board ; jamais dans un dépôt public) · Livrables attendus (A1 e-mail/proposition, A2 questionnaire, A3 cadrage, B1 plan de fonctions Pixee PIM, B2 versions, C démo) · Questions ouvertes · Source (meeting_id, date, durée) · Historique.
 Règle d'or : **ne rien inventer**. Ce qui n'a pas été dit devient une question ouverte.
 
 ## 4. Créer et lancer
 - Projet = slug de la société (`nom-du-client`). S'il existe, réutiliser.
 - Tâche `Brief — <Client> : <objet>`, priorité haute, assignée au Directeur de studio, description = brief.
-- Sous-tâches par rôle comme pour tout brief ; dépôt client **privé** `pixeeplay/client-<slug>` ; réutiliser l'audit Pixee PIM (PIX-5) pour l'existant.
+- Sous-tâches par rôle comme pour tout brief ; dépôt client **privé** `pixeeplay/client-<slug>` ; réutiliser l'audit Pixee PIM déjà réalisé pour l'existant.
 - Consigner `meeting_id` → tâche dans le document `visios-traitees` de la routine.
 
-## Exemples traités
-- Client A : PIX-3.
-- Client B : PIX-10.
+## Exemple
+- Une visio découverte de 15 min avec un e-commerçant (Shopify + ERP retail) devient un brief avec parcours critiques, engagements pris oralement, questions ouvertes, puis 8 sous-tâches (dépôt privé, audit, questionnaire, e-mail de proposition, plan de fonctions, versions, cadrage, démo).

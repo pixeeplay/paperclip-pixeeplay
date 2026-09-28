@@ -75,4 +75,4 @@ for i in $(seq 1 30); do
   [[ $i -eq 30 ]] && { echo; echo "✗ Paperclip ne répond pas encore — vérifie les logs dans Coolify." >&2; exit 1; }
 done
 echo
-echo "Terminé. Dans Paperclip → tâche PIX-4 → « Run now » sur le CTO : il doit créer pixeeplay/client-<slug>."
+echo "Terminé. Dans Paperclip, relance le CTO sur la tâche de création du dépôt client (« Run now ») : il doit créer pixeeplay/client-<slug>."
